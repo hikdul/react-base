@@ -1,4 +1,5 @@
-import { ProductCard } from "./ProductCard"
+import { isPropertyDeclaration } from "typescript"
+import { ProducButtons, product, ProductCard, ProductImage, ProductTitle } from "./ProductCard"
  
 const PRODUCTOS = [
     {
@@ -22,6 +23,15 @@ const PRODUCTOS = [
     },
 ]
 
+const RenderProducts = ({product}:{product:product}) => {
+    return (
+        <ProductCard product={product}>
+            <ProductCard.Title />
+            <ProductCard.Image />
+            <ProductCard.Buttons />
+        </ProductCard>
+    )
+}
 
 export const ShoppingPage = () => 
 {
@@ -31,7 +41,7 @@ export const ShoppingPage = () =>
             <hr/>
             <div 
                 style={{display: 'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                {PRODUCTOS.map(prod => <ProductCard key={prod.id} product={prod} />)}
+                {PRODUCTOS.map( prod => <RenderProducts key={prod.id} product={prod} />)}
             </div>
         </div>
     )

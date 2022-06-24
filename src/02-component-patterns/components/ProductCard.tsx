@@ -2,86 +2,127 @@
 import styles from '../styles/styles.module.css'
 import noImg from '../assets/no-image.jpg'
 import { useProduc } from '../hooks/useProduct'
-import { ReactComponentElement, ReactElement } from 'react'
+import { createContext, ReactElement, useContext } from 'react'
 
-
-export const ProductImage = ({alt, img}: ProductImageProps) => 
+// ==/==&==> Use Context
+interface ProductContextProps
 {
+    counter: number
+    AddBy: (value: number) => void
+    product: product
+}
+
+// creamos nuestro contexto
+const ProductContext = createContext({} as ProductContextProps)
+
+
+// el proveedor de informacion
+const { Provider } = ProductContext
+
+
+// ==/==&==> 
+// ==/==&==> fin del Use Context
+
+// ==/==> diferentes componentes
+
+//Componente para trabajar imagenes
+const obtenerImagen= (img?:string, product?: product):string =>
+{
+
+    let imageToView: string
+
+    if(img) 
+        return img
+    else if(product && product.img)
+        return product.img
+    else
+        return noImg
+}
+
+export const ProductImage = ({img = ''}: ProductImageProps) => 
+{
+    const {product} = useContext(ProductContext)
     return(
-            <img className={ styles.productImg } src={img ? img : noImg } alt={alt} />
+            <img className={ styles.productImg } src={ obtenerImagen(img,product) } alt={product.title} />
     )
 }
 
 interface ProductImageProps  
 {
-    alt: string
     img?: string
 }
 
-export const ProductTitle = ({ title } : { title : string } ) =>
+// Para trabajar con es span o titulo
+
+const getTitle = (title?:string, product?:product):string =>{
+    if(title)
+        return title
+    else if(product && product.title)
+        return product.title
+    else
+        return ' --- '
+}
+
+export const ProductTitle = ({ title} : { title ?: string } ) =>
 {
+    const {product} = useContext(ProductContext)
     return(
-            <span className={styles.productDescription}>{title}</span>
+            <span className={styles.productDescription}>{getTitle(title,product)}</span>
     )
 }
 
-export const ProducButtons = ({ counter, AddBy ,increment}:ProductButtonsProps) =>
+export const ProducButtons = () =>
 {
+    const {AddBy, counter} = useContext(ProductContext)
 
     return(
         <div className={styles.buttonsContainer}>
             <button 
                 className={styles.buttonMinus}
-                onClick={() => AddBy(-increment)}>
+                onClick={() => AddBy(-1)}>
                     -
                 </button>
             <div className={styles.countLabel}>{counter}</div>
             <button 
                 className={styles.buttonAdd}
-                onClick={() => AddBy(increment)}>
+                onClick={() => AddBy(1)}>
                     +
                 </button>
         </div>
     )
 }
 
-//nota en como pasar las funciones
-interface ProductButtonsProps
-{
-    counter: number
-    AddBy: (value:number)=>void
-    increment: number
-}
-
-ProducButtons.defaultProps={
-    increment:1
-}
 
 // ==> yo le daria la responsabilidad de obtener los datos al componente de los botones. 
 // ==/==> Creo que se hace asi para facilitar la comunicacion entre hijos y padres. pero Para eso esta es useContext
 
-export const ProductCard = ({product} : productCardProps)=> 
+export const ProductCard = ({product, children} : productCardProps)=> 
 {
     
     const {counter, AddBy} = useProduc()
     const {img, title } = product
 
     return (
-        <div className={ styles.productCard }>
-            <ProductImage alt={title} img={img} /> 
-            <ProductTitle title={title} />
-            <ProducButtons counter={counter} AddBy={AddBy} />
-        </div>
+        <Provider 
+            value={{counter, AddBy, product}}>
+            <div className={ styles.productCard }>
+                {children}
+            </div>
+        </Provider>
     )
 }
 
 interface productCardProps{
     product: product
-    children?: () => ReactElement 
+    children?:  ReactElement | ReactElement[]
 } 
 
-interface  product{
+export interface product{
     id: string
     title: string
     img?: string
 }
+
+ProductCard.Title = ProductTitle
+ProductCard.Image = ProductImage
+ProductCard.Buttons = ProducButtons
