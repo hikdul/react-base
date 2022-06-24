@@ -1,9 +1,9 @@
 // Para trabajar con es span o titulo
 
 import { useContext } from "react"
+import { ProductContext } from "../context/ProductContext"
 import { product } from "../intenfaces/Interfaces"
 import styles from '../styles/styles.module.css'
-import { ProductContext } from "./ProductCard"
 
 const getTitle = (title?:string, product?:product):string =>{
     if(title)

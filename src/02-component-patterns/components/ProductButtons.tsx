@@ -1,6 +1,6 @@
 import { useContext } from "react"
+import { ProductContext } from "../context/ProductContext"
 import styles from '../styles/styles.module.css'
-import { ProductContext } from "./ProductCard"
 
 export const ProducButtons = () =>
 {

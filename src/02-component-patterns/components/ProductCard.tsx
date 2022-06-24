@@ -1,15 +1,8 @@
 
+import { ProductContext } from '../context/ProductContext'
 import { useProduc } from '../hooks/useProduct'
 import { productCardProps } from '../intenfaces/Interfaces'
 import styles from '../styles/styles.module.css'
-
-// ==/==&==> Use Context
-
-import { createContext } from "react"
-import { ProductContextProps } from "../intenfaces/Interfaces"
-
-// creamos nuestro contexto
-export const ProductContext = createContext({} as ProductContextProps)
 
 
 // el proveedor de informacion

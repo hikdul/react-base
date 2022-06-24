@@ -1,4 +1,4 @@
-import { ProducButtons, ProductCard, ProductImage, ProductTitle } from '../components'
+import { ProducButtons, ProductCard, ProductImage, ProductTitle, RenderProducts2 } from '../components'
 import { RenderProducts } from '../components/RenderProductToList'
 
 const PRODUCTOS = [
@@ -23,7 +23,6 @@ const PRODUCTOS = [
     },
 ]
 
-
 export const ShoppingPage = () => 
 {
     return(
@@ -31,12 +30,9 @@ export const ShoppingPage = () =>
             <h1>Shoppin store</h1>
             <hr/>
             <div 
-                style={{display: 'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                {PRODUCTOS.map( prod  => (<ProductCard product={prod}>
-                                            <ProductImage />
-                                            <ProductTitle />
-                                            <ProducButtons />
-                                        </ProductCard>))}
+                style={{display: 'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'space-between'}}>
+                    {PRODUCTOS.map( prod  => <RenderProducts product={prod}/>)}
+                    {PRODUCTOS.map( prod  => <RenderProducts2 product={prod}/>)}
             </div>
         </div>
     )

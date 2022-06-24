@@ -25,3 +25,14 @@ export interface ProductContextProps
     AddBy: (value: number) => void
     product: product
 }
+
+//estas interface es para demostrar como se cumple en el cose de unir componentes en componentes
+// esta es una interface adicional
+export interface ProductCordHOCProps
+{
+    ({children, product}: productCardProps): JSX.Element,
+    Title: ({ title }: {title?: string}) => JSX.Element,
+    Image: ({ img} : {img?: string}) => JSX.Element,
+    Buttons: () => JSX.Element
+}
+
