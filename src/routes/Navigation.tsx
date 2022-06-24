@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { Loading } from '../components/loading/Loading';
 import logo from '../logo.svg';
 import { Lix } from './Components/Lix';
