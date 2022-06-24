@@ -11,7 +11,6 @@ const RS = ({path, Component} : RouteData) =>  (<Route key={path} path={path} el
 export const Navigation = () => {
   // el Suspense es para indicarle a react que debe de esperar, mientras lo haces has otra cosa... (un componete de carga o loading)
   return (
-    <Suspense fallback={<Loading />}>
     <BrowserRouter>
       <div className="main-layout">
         <nav>
@@ -29,6 +28,5 @@ export const Navigation = () => {
 
       </div>
     </BrowserRouter>
-    </Suspense>
   );
 }
