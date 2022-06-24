@@ -1,6 +1,6 @@
-import { isPropertyDeclaration } from "typescript"
-import { ProducButtons, product, ProductCard, ProductImage, ProductTitle } from "./ProductCard"
- 
+import { ProducButtons, ProductCard, ProductImage, ProductTitle } from '../components'
+import { RenderProducts } from '../components/RenderProductToList'
+
 const PRODUCTOS = [
     {
         id: '1',
@@ -23,15 +23,6 @@ const PRODUCTOS = [
     },
 ]
 
-const RenderProducts = ({product}:{product:product}) => {
-    return (
-        <ProductCard product={product}>
-            <ProductCard.Title />
-            <ProductCard.Image />
-            <ProductCard.Buttons />
-        </ProductCard>
-    )
-}
 
 export const ShoppingPage = () => 
 {
@@ -41,7 +32,11 @@ export const ShoppingPage = () =>
             <hr/>
             <div 
                 style={{display: 'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-                {PRODUCTOS.map( prod => <RenderProducts key={prod.id} product={prod} />)}
+                {PRODUCTOS.map( prod  => (<ProductCard product={prod}>
+                                            <ProductImage />
+                                            <ProductTitle />
+                                            <ProducButtons />
+                                        </ProductCard>))}
             </div>
         </div>
     )

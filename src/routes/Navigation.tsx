@@ -1,4 +1,6 @@
+import { NavLink } from 'react-router-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
 import logo from '../logo.svg';
 import { Lix } from './Components/Lix';
 import { routes } from './routes';
@@ -14,13 +16,12 @@ export const Navigation = () => {
         <nav>
             <img src={ logo } alt="React Logo" />
           <ul>
-            {routes.map(R => <Lix element={R} /> )}
+              {routes.map(ruta => <Lix element={ruta} /> )}
           </ul>
         </nav>
 
           <Routes>
-              {routes.map((route) =>  RS(route))}
-              <Route path="/" element={<>Home Page</>}/>
+              {routes.map(ruta => RS(ruta))}
               <Route path="/*" element={<>404 Not Found</>}/>
           </Routes>
 
