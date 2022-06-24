@@ -20,6 +20,4 @@ export const ProductCard: ProductCordHOCProps = Object.assign( PCI , {
     Buttons: ProducButtons
 })
 
-
-
 export default ProductCard
