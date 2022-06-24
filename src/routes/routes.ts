@@ -1,4 +1,3 @@
-import { lazy } from "react";
 import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
 import { RouteData } from "./types/types";
 //import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";

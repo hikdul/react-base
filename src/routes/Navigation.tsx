@@ -1,6 +1,4 @@
-import { Suspense } from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { Loading } from '../components/loading/Loading';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import logo from '../logo.svg';
 import { Lix } from './Components/Lix';
 import { routes } from './routes';
