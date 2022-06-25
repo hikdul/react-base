@@ -1,5 +1,4 @@
-import { ProducButtons, ProductCard, ProductImage, ProductTitle, RenderProducts2 } from '../components'
-import { RenderProducts } from '../components/RenderProductToList'
+import { RenderProducts, RenderProducts2 } from '../components'
 
 const PRODUCTOS = [
     {

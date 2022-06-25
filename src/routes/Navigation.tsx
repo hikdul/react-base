@@ -1,6 +1,4 @@
-import { NavLink } from 'react-router-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
 import logo from '../logo.svg';
 import { Lix } from './Components/Lix';
 import { routes } from './routes';

@@ -1,26 +1,16 @@
-import { ReactElement } from 'react'
-
-export interface productCardProps
-{
-    product: product
-    children?:  ReactElement | ReactElement[]
-} 
+import { Props as ProductButtonProps } from '../components/ProductButtons'
+import { productCardProps } from '../components/ProductCard'
+import { ProductImageProps } from '../components/ProductImage'
+import { ProducTitlePros } from '../components/ProductTitle'
 
 // Generalmente esta interface estaria en un lugar para manipular estos datos
-export interface product
-{
+export interface product {
     id: string
     title: string
     img?: string
 }
 
-export interface ProductImageProps  
-{
-    img?: string
-}
-
-export interface ProductContextProps
-{
+export interface ProductContextProps {
     counter: number
     AddBy: (value: number) => void
     product: product
@@ -28,11 +18,10 @@ export interface ProductContextProps
 
 //estas interface es para demostrar como se cumple en el cose de unir componentes en componentes
 // esta es una interface adicional
-export interface ProductCordHOCProps
-{
-    ({children, product}: productCardProps): JSX.Element,
-    Title: ({ title }: {title?: string}) => JSX.Element,
-    Image: ({ img} : {img?: string}) => JSX.Element,
-    Buttons: () => JSX.Element
+export interface ProductCordHOCProps {
+    ({ children, product }: productCardProps): JSX.Element,
+    Title: (Props: ProducTitlePros) => JSX.Element,
+    Image: (Props: ProductImageProps) => JSX.Element,
+    Buttons: (Props: ProductButtonProps) => JSX.Element
 }
 
