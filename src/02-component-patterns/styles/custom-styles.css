@@ -29,3 +29,10 @@
     color: white;
 
 }
+
+.shoppning-car {
+    position: fixed;
+    top: 0;
+    right: 10px;
+
+}
