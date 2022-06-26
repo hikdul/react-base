@@ -25,3 +25,18 @@ export interface ProductCordHOCProps {
     Buttons: (Props: ProductButtonProps) => JSX.Element
 }
 
+export interface ProductInCard extends product {
+    count: number
+}
+
+export interface onChangeArgs
+{
+    product: product
+    count: number
+}
+
+export interface onChangeEventArgs
+{   
+    count: number
+    product: product
+}
