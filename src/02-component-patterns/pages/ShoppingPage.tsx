@@ -31,7 +31,22 @@ export const ShoppingPage = () => {
 
   const onProductCountChange= ({count, product} : onChangeEventArgs) => 
   {
-    console.log(count, product)
+      setShoppingCar(oldShoppingCar => { 
+        if( count === 0){
+            // de este modo lo resolvi yo
+            //delete oldShoppingCar[product.id]
+            //return{
+            //  ...oldShoppingCar
+            //}
+            // de este modo proponen hacerlo
+            const {[product.id]: toDelete, ...rest} = oldShoppingCar
+            return rest 
+        }
+
+        return{
+          ...oldShoppingCar,
+          [product.id]: {...product,count}
+        }})
   }
 
   return (
@@ -72,6 +87,13 @@ export const ShoppingPage = () => {
             <ProducButtons className="custom-buttons" />
           </ProductCard>
         ))}
+      </div>
+
+      <hr/>
+      <div>
+        <code>
+          {JSON.stringify(shoppingCar,null,5)}
+        </code>
       </div>
     </div>
   );
