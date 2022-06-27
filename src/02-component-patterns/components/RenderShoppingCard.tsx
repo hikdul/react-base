@@ -1,4 +1,4 @@
-import { onChangeEventArgs, product, ProductInCard } from "../intenfaces/Interfaces"
+import { onChangeEventArgs, ProductInCard } from "../intenfaces/Interfaces"
 import { ProducButtons } from "./ProductButtons"
 import { ProductCard } from "./ProductCard"
 import { ProductImage } from "./ProductImage"

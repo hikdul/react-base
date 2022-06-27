@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { RenderProducts } from "../components";
 import { RenderShoppingCard } from "../components/RenderShoppingCard";
 import { PRODUCTOS } from "../const/Productos";
 import { useShoppingCar } from "../hooks/useShoppingCar";
-import { onChangeEventArgs, ProductInCard } from "../intenfaces/Interfaces";
 import "../styles/custom-styles.css";
 
 export const ShoppingPage = () => {
