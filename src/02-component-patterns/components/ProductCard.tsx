@@ -1,3 +1,4 @@
+
 import { CSSProperties, ReactElement } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { useProduc } from "../hooks/useProduct";
@@ -12,10 +13,11 @@ export const ProductCard = ({
   children,
   className,
   style,
-  onChange
+  onChange,
+  value
 }: productCardProps) => {
 
-  const { counter, AddBy } = useProduc( { onChange, product } )
+  const { counter, AddBy } = useProduc( { onChange, product, value } )
 
   return (
     <Provider value={{ counter, AddBy, product }}>
@@ -34,4 +36,5 @@ export interface productCardProps
   className?: string
   style?: CSSProperties
   onChange?: (Args: onChangeArgs) => void
+  value?: number
 }

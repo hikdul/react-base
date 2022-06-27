@@ -7,8 +7,8 @@ export const RenderProducts2 = ({product}:{product:product}) => {
         <ProductCard
             product={product}
             className="bg-dark text-white">
-                <ProductCard.Image className="custom-image" />
-                <ProductCard.Title className="negrita center-text" />
+                <ProductCard.Image   className="custom-image" />
+                <ProductCard.Title   className="negrita center-text" />
                 <ProductCard.Buttons className="custom-buttons"/>
         </ProductCard>
     )
