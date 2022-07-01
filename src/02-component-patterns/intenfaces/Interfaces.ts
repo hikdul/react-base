@@ -49,3 +49,14 @@ export interface initialValuesProductCarArgs
     count?: number
     maxCount?: number
 }
+
+export interface ProductCardHandlers
+{
+    count: number
+    isMaxCountReached: boolean
+    maxCount?: number
+    product: product
+
+    increaseBy:(value: number) => void
+    reset: () => void
+}
