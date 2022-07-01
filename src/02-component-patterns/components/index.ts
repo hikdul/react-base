@@ -10,8 +10,6 @@ import { ProductTitle } from './ProductTitle'
 export { ProducButtons } from './ProductButtons'
 export { ProductImage } from './ProductImage'
 export { ProductTitle } from './ProductTitle'
-export { RenderProducts } from './RenderProductToList'
-export { RenderProducts2 } from './RenderProductToList2'
 
 // de este modo le agrego una nueva propiedad a un objeto
 export const ProductCard: ProductCordHOCProps = Object.assign( PCI , {

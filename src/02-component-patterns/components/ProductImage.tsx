@@ -7,7 +7,6 @@ import { ProductContext } from "../context/ProductContext"
 //Componente para trabajar imagenes
 const obtenerImagen= (img?:string, product?: product):string =>
 {
-
     if(img) 
         return img
     else if(product && product.img)

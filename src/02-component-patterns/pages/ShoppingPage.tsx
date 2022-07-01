@@ -1,30 +1,37 @@
-import { RenderProducts } from "../components";
-import { RenderShoppingCard } from "../components/RenderShoppingCard";
+import { ProducButtons, ProductImage, ProductTitle } from "../components";
+import { ProductCard } from "../components/ProductCard";
 import { PRODUCTOS } from "../const/Productos";
-import { useShoppingCar } from "../hooks/useShoppingCar";
 import "../styles/custom-styles.css";
 
 export const ShoppingPage = () => {
-  const { shoppingCar, onProductCountChange } = useShoppingCar()
 
   return (
     <div>
       <h1>Shoppin store</h1>
       <hr />
-      {/* para ver los productos grandes */}
       <div style={{display: "flex",flexDirection: "row",flexWrap: "wrap",justifyContent: "space-between"}}
       >
-        {PRODUCTOS.map((prod) => (
-          <RenderProducts product={prod} value={shoppingCar[prod.id]?.count || 0} onChange={(event) => onProductCountChange(event)}/>
-        ))}
+        {PRODUCTOS.map( prod =>(
+          <ProductCard 
+           key={prod.id}  
+           product={prod} 
+           className="bg-dark text-white"
+           style={{margin: '10px'}}
+           initialValues={{count:0, maxCount: prod.cant}}>
+             {
+              ()=>(
+                <>
+                  <ProductImage 
+                    className="custom-image" 
+                    style={{boxShadow: '10px 10px 10px rgba(0,0,0,.2)'}} />
+                  <ProductTitle className="text-bold"/>
+                  <ProducButtons className="custom-buttons"/>
+                </>
+              )
+             }
+          </ProductCard>))}       
+
       </div>
-      {/* para ver el corritos de compras */}
-      <div className="shoppning-car">
-        {Object.entries(shoppingCar).map(([key, product]) => (
-          <RenderShoppingCard key={key} product={product} onChange={(event) => onProductCountChange(event)} />
-        ))}
-      </div>
-      <hr />
     </div>
   )
 }

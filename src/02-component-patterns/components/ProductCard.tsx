@@ -2,7 +2,7 @@
 import { CSSProperties, ReactElement } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { useProduc } from "../hooks/useProduct";
-import { onChangeArgs, product } from "../intenfaces/Interfaces";
+import { initialValuesProductCarArgs, onChangeArgs, product } from "../intenfaces/Interfaces";
 import styles from "../styles/styles.module.css";
 
 // el proveedor de informacion
@@ -14,15 +14,16 @@ export const ProductCard = ({
   className,
   style,
   onChange,
-  value
+  value,
+  initialValues
 }: productCardProps) => {
 
-  const { counter, AddBy } = useProduc( { onChange, product, value } )
+  const { counter, AddBy, maxCount } = useProduc( { onChange, product, value, initialValues } )
 
   return (
-    <Provider value={{ counter, AddBy, product }}>
+    <Provider value={{ counter, AddBy, product, maxCount }}>
       <div style={style} className={`${styles.productCard} ${className}`}>
-        {children}
+        {  children && children() }
       </div>
     </Provider>
   );
@@ -32,9 +33,11 @@ export const ProductCard = ({
 export interface productCardProps
 {
   product: product
-  children?: ReactElement | ReactElement[]
+  //children?: ReactElement | ReactElement[]
+  children?: () =>  JSX.Element
   className?: string
   style?: CSSProperties
   onChange?: (Args: onChangeArgs) => void
   value?: number
+  initialValues?: initialValuesProductCarArgs 
 }
