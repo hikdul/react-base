@@ -9,10 +9,10 @@ export const ProducButtons = ({className, style, buttonStyle, counterStyle}: Pro
 
     // !! se usa useCallBack, para evitar refrescos inecesarios... en otras palabras react tiene memoria en este punto
     const isMarReacthed = useCallback(
-        () => !!maxCount && counter == maxCount, [ counter, maxCount ]
+        () => !!maxCount && counter === maxCount, [ counter, maxCount ]
     )
     const isMinReacthed = useCallback(
-        () =>  counter == 0, [ counter ]
+        () =>  counter === 0, [ counter ]
     )
     // TODO: isMarReacthed useCallback, [counter, maxcount] => true if couter === maxCount, else ... 
 
