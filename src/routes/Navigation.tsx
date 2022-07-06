@@ -17,12 +17,10 @@ export const Navigation = () => {
               {routes.map(ruta => <Lix element={ruta} /> )}
           </ul>
         </nav>
-
-          <Routes>
-              {routes.map(ruta => RS(ruta))}
-              <Route path="/*" element={<>404 Not Found</>}/>
-          </Routes>
-
+        <Routes>
+            {routes.map(ruta => RS(ruta))}
+            <Route path="/*" element={<>404 Not Found</>}/>
+        </Routes>
       </div>
     </BrowserRouter>
   );
