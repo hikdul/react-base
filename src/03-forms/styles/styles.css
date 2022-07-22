@@ -3,6 +3,8 @@ form
     display: flex;
     flex-direction: column;
     width: 400px;
+    align-items: center;
+    justify-content: center;
 }
 
 input, select
@@ -10,6 +12,7 @@ input, select
     margin-top: 5px;
     outline: none;
     padding: 10px;
+    border: 2px solid transparent;
 }
 
 button
@@ -20,10 +23,10 @@ button
 
 span, .error-message
 {
-    color: red;
+    color: #e11515;
 }
 
 .has-error
 {
-    border: 1px solid red;
+    border: 2px solid #e11515;
 }
