@@ -1,5 +1,4 @@
 import { ChangeEvent, useState } from "react"
-import { RegisterDataProps } from "../interfaces/RegisterPageProps"
 
 export const useForm = <T>(initState: T) =>
 {
@@ -13,7 +12,7 @@ export const useForm = <T>(initState: T) =>
         return re.test(email);
     }
     
-    const areEqual = (value1: string , value2: string): boolean => value1 == value2
+    const areEqual = (value1: string , value2: string): boolean => value1 === value2
 
     const isValueRequired = (value: string): boolean => value.length  <= 0
     

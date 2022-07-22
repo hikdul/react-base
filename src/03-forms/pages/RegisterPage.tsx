@@ -1,4 +1,4 @@
- import React, { ChangeEvent, FormEvent, useState } from 'react'
+ import { FormEvent } from 'react'
 import { useForm } from '../hooks/useForm'
 import { RegisterDataProps } from '../interfaces/RegisterPageProps'
  import '../styles/styles.css' 
