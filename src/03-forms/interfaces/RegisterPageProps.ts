@@ -1,14 +1,24 @@
 export interface RegisterDataProps
 {
-    Name: string;
-    Email: string;
-    Password: string;
-    Password2: string;
+    Email: string
+    Name: string
+    Password: string
+    Password2: string
 }
 
 export interface formikBasicProps
 {
-    firstName: string,
-    lastName: string,
     email: string
+    firstName: string
+    lastName: string
+}
+
+
+export interface formikCompleteProps
+{
+    email: string
+    firstName: string
+    lastName: string
+    terms: boolean
+    jobType: string
 }
