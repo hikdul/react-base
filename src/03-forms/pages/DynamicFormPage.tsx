@@ -19,6 +19,17 @@ for (const input of dataJson) {
                 const messege = 'this field is required'
                 schema = schema.required(messege)
             }    
+            
+            if(rule.type === 'email')
+            {
+                schema = schema.email('this is not a valid email')
+            }
+
+            if(rule.type === 'min')
+            {
+                const value = (rule as any).value || 1
+                schema = schema.min(value, `min leght is ${value}`)
+            }
 
         }
 
@@ -34,11 +45,12 @@ export const DynamicFormPage = () =>
             <h1>Dynamic Form</h1>
             
             <Formik 
+        
                 initialValues={initialValues}
                 onSubmit={values => console.log(values)}
                 validationSchema={VALIDATIONSCHEMA}>
                 {(formikProps)=>(
-                    <Form>
+                    <Form noValidate>
                        {dataJson.map(({type, name, placeHolder,label,options}) =>
                        {
                             if(type==='input' || type ==='password' || type ==='email')

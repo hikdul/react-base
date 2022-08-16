@@ -18,9 +18,8 @@
         "label": "firstName",
         "value": "",
         "validations": [
-            {
-                "type":"required"
-            }
+            {"type":"required"},
+            {"type":"min", "value": 2}
         ]
     },
     {
@@ -39,6 +38,11 @@
         "name": "favoriteGame",
         "label": "Seleccione su juego favorito",
         "value": "",
+        "validations": [
+            {
+                "type":"required"
+            }
+        ],
         "options": [
             {"value": 1, "text": "Super Smash"},
             {"value": 5, "text": "Metal Gear"},
