@@ -1,0 +1,48 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeHolder": "Oscar Enrrique",
+        "label": "firstName",
+        "value": "",
+        "validations": [
+            {
+                "type":"required"
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeHolder": "Contreras Callender",
+        "label": "firstName",
+        "value": "",
+        "validations": [
+            {
+                "type":"required"
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeHolder": "example@host.xx",
+        "label": "Ingrese Correo Electronico",
+        "value": "",
+        "validations": [
+            { "type":"required"  },
+            { "type": "email"}
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Seleccione su juego favorito",
+        "value": "",
+        "options": [
+            {"value": 1, "text": "Super Smash"},
+            {"value": 5, "text": "Metal Gear"},
+            {"value": 9, "text": "Resident Evil"}
+        ]
+    }
+]
